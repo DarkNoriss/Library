@@ -3,6 +3,7 @@ import "./style.scss";
 const myLibrary = [];
 const myForm = document.getElementById("library-form");
 const bookList = document.getElementById("book-list");
+const btnAdd = document.getElementById("btnAdd");
 
 myForm.addEventListener("submit", submitForm);
 

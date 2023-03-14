@@ -4,21 +4,25 @@
 }
 
 body {
-  margin: 5rem 15rem;
-  display: flex;
-  place-items: center;
-  justify-content: center;
+  margin: 0;
 }
 
-.main,
-#library {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 20vh;
-  min-width: 20vw;
-  border: 0.25rem solid aliceblue;
+.header {
+  font-size: 2rem;
+  border-bottom: 0.25rem solid aliceblue;
+  & h1 {
+    margin: 1rem 1rem 0rem;
+  }
+}
+
+.main {
+  padding: 2rem 16rem;
+  border-top: 0.25rem solid aliceblue;
+  text-align: center;
+  & button {
+    font-size: 2rem;
+    font-weight: 600;
+  }
 }
 
 #app form {
