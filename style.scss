@@ -9,7 +9,8 @@ body {
   place-items: center;
   justify-content: center;
 }
-#app,
+
+.main,
 #library {
   flex: 1;
   display: flex;
@@ -23,6 +24,24 @@ body {
 #app form {
   display: flex;
   flex-direction: column;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  gap: 10px;
+  width: 100%;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.nodecoration {
+  color: inherit;
+  text-decoration: none;
 }
 
 input::-webkit-outer-spin-button,
