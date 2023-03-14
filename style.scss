@@ -1,0 +1,31 @@
+:root {
+  color: aliceblue;
+  background-color: #242424;
+}
+
+body {
+  margin: 5rem 15rem;
+  display: flex;
+  place-items: center;
+  justify-content: center;
+}
+#app,
+#library {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 20vh;
+  min-width: 20vw;
+  border: 0.25rem solid aliceblue;
+}
+
+#app form {
+  display: flex;
+  flex-direction: column;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
