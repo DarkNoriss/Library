@@ -15,21 +15,17 @@
       <h1>LIBRARY</h1>
     </header>
     <div class="main">
-      <button class="btnAdd">ADD BOOK</button>
-      <!-- 
-      <form action="" id="library-form">
-        <label for="book-name">BOOK NAME</label>
-        <input type="text" name="book-name" required />
-        <label for="book-author">AUTHOR</label>
-        <input type="text" name="book-author" required />
-        <label for="book-pages">TOTAL PAGES</label>
-        <input type="number" name="book-pages" required />
-        <button type="submit">ADD BOOK</button>
-      </form>-->
+      <button class="btnAdd rounded">+ ADD BOOK</button>
     </div>
-    <!-- <div id="library">
-      <ul id="book-list"></ul>
-    </div>  -->
+    <dialog class="modal rounded">
+      <form class="library-form" method="dialog">
+        <h2>Add new book</h2>
+        <input type="text" name="book-name" placeholder="Title" required />
+        <input type="text" name="book-author" placeholder="Author" required />
+        <input type="number" name="book-pages" placeholder="Pages" required />
+        <button class="btnSubmit rounded" type="submit">ADD BOOK</button>
+      </form>
+    </dialog>
     <footer class="footer">
       <a
         href="https://github.com/DarkNoriss"

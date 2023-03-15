@@ -10,8 +10,9 @@ body {
 .header {
   font-size: 2rem;
   border-bottom: 0.25rem solid aliceblue;
+
   & h1 {
-    margin: 1rem 1rem 0rem;
+    margin: 1rem 2rem;
   }
 }
 
@@ -19,15 +20,39 @@ body {
   padding: 2rem 16rem;
   border-top: 0.25rem solid aliceblue;
   text-align: center;
-  & button {
+
+  & .btnAdd {
     font-size: 2rem;
     font-weight: 600;
+    color: aliceblue;
+    background: none;
+    border: none;
+    outline: none;
   }
 }
 
-#app form {
-  display: flex;
-  flex-direction: column;
+.modal {
+  border: 0.25rem solid aliceblue;
+  padding: 2rem;
+
+  & h2 {
+    font-size: 2.5rem;
+    margin: 0;
+  }
+  & .library-form {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 2rem;
+
+    & input {
+      padding: 0.5rem;
+      border-radius: 0.5rem;
+    }
+    & button {
+      padding: 0.75rem;
+    }
+  }
 }
 
 .footer {
@@ -41,6 +66,14 @@ body {
   width: 100%;
   font-size: 1.5rem;
   margin-bottom: 0.5rem;
+}
+
+.btn {
+  border-radius: 0.5rem;
+}
+
+.rounded {
+  border-radius: 0.5rem;
 }
 
 .nodecoration {
