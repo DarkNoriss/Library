@@ -22,12 +22,27 @@ body {
   text-align: center;
 
   & .btnAdd {
+    padding: 0.5rem;
     font-size: 2rem;
     font-weight: 600;
     color: aliceblue;
     background: none;
     border: none;
     outline: none;
+  }
+  & .btnAdd:hover {
+    outline: 0.25rem solid aliceblue;
+  }
+
+  & .book-grid {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(4, 25%);
+    gap: 2rem;
+  }
+
+  & .book {
+    background-color: blue;
   }
 }
 
@@ -53,6 +68,10 @@ body {
       padding: 0.75rem;
     }
   }
+}
+.modal::backdrop {
+  background-color: black;
+  opacity: 0.75;
 }
 
 .footer {
@@ -84,4 +103,8 @@ body {
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
+}
+input[type="text"],
+input[type="number"] {
+  cursor: text;
 }

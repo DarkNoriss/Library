@@ -1,9 +1,10 @@
 import "./style.scss";
 
-// const myLibrary = [];
+const myLibrary = [];
 const myForm = document.querySelector(".library-form");
 const modal = document.querySelector(".modal");
 const btnAdd = document.querySelector(".btnAdd");
+const bookGrid = document.querySelector(".book-grid");
 
 btnAdd.addEventListener("click", () => {
   modal.showModal();
@@ -12,16 +13,27 @@ myForm.addEventListener("submit", submitForm);
 
 function addBookToLibrary(newBook) {
   myLibrary.push(newBook);
+  bookGrid.innerHTML = "";
 
-  // myLibrary.forEach((element) => {
-  //   const list = document.createElement("li");
-  //   const text = document.createElement("p");
+  myLibrary.forEach((element) => {
+    const textName = document.createElement("p");
+    textName.innerText = `${element.name}`;
 
-  //   text.innerText = `${element.name}, ${element.author}, ${element.pages}`;
-  //   list.classList.add("book");
-  //   list.appendChild(text);
-  //   bookList.appendChild(list);
-  // });
+    const textAuthor = document.createElement("p");
+    textAuthor.innerText = `${element.author}`;
+
+    const textPages = document.createElement("p");
+    textPages.innerText = `${element.author}`;
+
+    const bookDiv = document.createElement("div");
+    bookDiv.classList.add("book");
+
+    bookDiv.appendChild(textName);
+    bookDiv.appendChild(textAuthor);
+    bookDiv.appendChild(textPages);
+
+    bookGrid.appendChild(bookDiv);
+  });
 }
 
 function submitForm(event) {
@@ -34,4 +46,6 @@ function submitForm(event) {
     pages: bookPages,
   };
   addBookToLibrary(book);
+
+  myForm.reset();
 }
