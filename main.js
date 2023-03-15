@@ -1,6 +1,6 @@
 import "./style.scss";
 
-const myLibrary = [];
+const myLibrary = loadData() || [];
 const myForm = document.querySelector(".library-form");
 const modal = document.querySelector(".modal");
 const btnAdd = document.querySelector(".btnAdd");
@@ -9,44 +9,37 @@ const bookGrid = document.querySelector(".book-grid");
 btnAdd.addEventListener("click", () => {
   modal.showModal();
 });
+
 myForm.addEventListener("submit", submitForm);
 
 function addBookToLibrary(newBook) {
   myLibrary.push(newBook);
-  bookGrid.innerHTML = "";
+  updateData();
+  updateLibrary();
+}
 
+function updateLibrary() {
   myLibrary.forEach((element) => {
-    const textName = document.createElement("p");
-    textName.innerText = `${element.name}`;
+    const name = createP(element.name);
+    const author = createP(element.author);
+    const pages = createP(element.pages);
 
-    const textAuthor = document.createElement("p");
-    textAuthor.innerText = `${element.author}`;
-
-    const textPages = document.createElement("p");
-    textPages.innerText = `${element.pages}`;
-
-    const btnRead = document.createElement("button");
-    btnRead.innerText = "Not read";
-    btnRead.classList.add("rounded");
+    const btnRead = createBtn("Not read");
     btnRead.style.backgroundColor = "#FF7F7F";
     btnRead.addEventListener("click", toggleRead);
 
-    const btnRemove = document.createElement("button");
-    btnRemove.innerText = "Remove";
-    btnRemove.classList.add("rounded");
+    const btnRemove = createBtn("Remove");
     btnRemove.addEventListener("click", deleteDiv);
 
-    const bookDiv = document.createElement("div");
-    bookDiv.classList.add("book");
-    bookDiv.classList.add("rounded");
+    const bookElements = {
+      name: name,
+      author: author,
+      pages: pages,
+      btnRead: btnRead,
+      btnRemove: btnRemove,
+    };
 
-    bookDiv.appendChild(textName);
-    bookDiv.appendChild(textAuthor);
-    bookDiv.appendChild(textPages);
-    bookDiv.appendChild(btnRead);
-    bookDiv.appendChild(btnRemove);
-
-    bookGrid.appendChild(bookDiv);
+    putInsideDiv(bookElements);
   });
 }
 
@@ -85,6 +78,46 @@ function deleteDiv(event) {
     if (element.name == bookName) {
       myLibrary.splice(index, 1);
       event.target.parentNode.remove();
+      return updateData();
     }
   });
 }
+
+function createP(text) {
+  const obj = document.createElement("p");
+  obj.innerText = text;
+  return obj;
+}
+
+function createBtn(text) {
+  const obj = document.createElement("button");
+  obj.innerText = text;
+  obj.classList.add("rounded");
+  return obj;
+}
+
+function putInsideDiv(newDiv) {
+  bookGrid.innerHTML = "";
+
+  const bookDiv = document.createElement("div");
+  bookDiv.classList.add("book");
+  bookDiv.classList.add("rounded");
+
+  Object.values(newDiv).forEach((element) => {
+    bookDiv.appendChild(element);
+  });
+
+  bookGrid.appendChild(bookDiv);
+}
+
+function loadData() {
+  const booksArrayStr = localStorage.getItem("booksarray");
+  const booksArray = JSON.parse(booksArrayStr);
+  return booksArray;
+}
+
+function updateData() {
+  localStorage.setItem("booksarray", JSON.stringify(myLibrary));
+}
+
+updateLibrary();
