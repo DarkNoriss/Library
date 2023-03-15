@@ -42,7 +42,24 @@ body {
   }
 
   & .book {
-    background-color: blue;
+    display: flex;
+    flex-direction: column;
+    background-color: aliceblue;
+    align-items: center;
+    text-align: center;
+    padding: 1rem;
+    gap: 1rem;
+    font-size: 1.5rem;
+    color: black;
+  }
+  & p {
+    margin: 0;
+  }
+  & .book button {
+    padding: 0.8rem;
+    text-align: center;
+    width: 90%;
+    font-size: 1.5rem;
   }
 }
 
