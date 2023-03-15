@@ -72,17 +72,16 @@ function toggleRead(event) {
   if (btnColor == "rgb(255, 127, 127)") {
     event.target.style.backgroundColor = "#57F287";
     event.target.innerText = "Read";
-  } else {
-    event.target.style.backgroundColor = "#FF7F7F";
-    event.target.innerText = "Not read";
+    return;
   }
+  event.target.style.backgroundColor = "#FF7F7F";
+  event.target.innerText = "Not read";
 }
 
 function deleteDiv(event) {
   const bookName = event.target.parentNode.firstChild.innerText;
 
   myLibrary.forEach((element, index) => {
-    console.log(element);
     if (element.name == bookName) {
       myLibrary.splice(index, 1);
       event.target.parentNode.remove();
